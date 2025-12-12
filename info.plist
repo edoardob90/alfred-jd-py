@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.edoardo.alfred-jd</string>
+	<string>com.edoardo.alfred-jd-py</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
@@ -1222,9 +1222,11 @@ Set the environment variables in the workflow settings:
 			<string>JD_INDEX</string>
 		</dict>
 	</array>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
 	<string>0.1.0</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/edoardob90/alfred-jd-py</string>
 </dict>
 </plist>
