@@ -54,7 +54,6 @@ Nested JSON at `~/.config/jd/index.json`:
 ## Conventions
 
 - Type hints: Use `X | None` (not `Optional[X]`)
-- Imports: `from __future__ import annotations` at top
 - No external dependencies - stdlib only
 - Config via env vars: `JD_ROOT`, `JD_INDEX`
 

@@ -13,8 +13,6 @@ State passing via variables:
 - jd_selected_id: Chosen ID slot
 """
 
-from __future__ import annotations
-
 import os
 import sys
 from pathlib import Path
@@ -86,7 +84,9 @@ def show_categories(query: str, index: JDIndex, jd_root) -> list[dict]:
             items.append(
                 create_item(
                     title=cat["name"],
-                    subtitle=f"Next available: {next_id}" if next_id else "Category full",
+                    subtitle=f"Next available: {next_id}"
+                    if next_id
+                    else "Category full",
                     arg="",
                     uid=f"new-cat-{cat_code}",
                     icon=str(path),

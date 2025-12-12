@@ -16,8 +16,6 @@ With --level filter (search only, no navigation):
 - `jd -l area life` -> Search areas only
 """
 
-from __future__ import annotations
-
 import argparse
 import re
 from pathlib import Path
@@ -30,7 +28,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Browse and search JD system")
     parser.add_argument("query", nargs="?", default="")
     parser.add_argument(
-        "--level", "-l",
+        "--level",
+        "-l",
         choices=["id", "category", "area"],
         help="Filter results by level (search only, no navigation)",
     )
@@ -143,7 +142,9 @@ def show_areas(index: JDIndex, jd_root: Path) -> list[dict]:
     return items
 
 
-def show_categories_in_area(area_code: str, index: JDIndex, jd_root: Path) -> list[dict]:
+def show_categories_in_area(
+    area_code: str, index: JDIndex, jd_root: Path
+) -> list[dict]:
     """Show categories within a specific area."""
     areas = index.get("areas", {})
     area = areas.get(area_code)
@@ -184,7 +185,9 @@ def show_categories_in_area(area_code: str, index: JDIndex, jd_root: Path) -> li
     return items
 
 
-def show_ids_in_category(category_code: str, index: JDIndex, jd_root: Path) -> list[dict]:
+def show_ids_in_category(
+    category_code: str, index: JDIndex, jd_root: Path
+) -> list[dict]:
     """Show IDs within a specific category."""
     # Find the category and its parent area
     area_code = _find_area_for_category(category_code, index)
@@ -297,7 +300,9 @@ def search_items(
                 if _matches_query(cat_name, query_words):
                     path = resolve_path(cat_code, index, jd_root)
                     score = _score_match(cat_name, query_lower)
-                    results.append((cat_code, cat_name, path, score, "category", area_name))
+                    results.append(
+                        (cat_code, cat_name, path, score, "category", area_name)
+                    )
 
             # Search IDs (if not filtered or filter is "id")
             if not filter_level or filter_level == "id":
@@ -314,7 +319,9 @@ def search_items(
                         subtitle = f"{area_name} → {cat_name}"
                         if section:
                             subtitle += f" → {section}"
-                        results.append((id_code, id_data["name"], path, score, "id", subtitle))
+                        results.append(
+                            (id_code, id_data["name"], path, score, "id", subtitle)
+                        )
 
     # Sort by score (higher is better), then by code
     results.sort(key=lambda x: (-x[3], x[0]))

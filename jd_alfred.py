@@ -5,8 +5,6 @@ Generates Script Filter JSON with proper structure for items,
 modifier keys, and variables.
 """
 
-from __future__ import annotations
-
 import json
 from pathlib import Path
 from typing import Any
