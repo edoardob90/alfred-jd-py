@@ -366,7 +366,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>jd</string>
+				<string>{var:jd_main}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -386,7 +386,7 @@
 				<key>subtext</key>
 				<string>Browse and search your Johnny Decimal system</string>
 				<key>title</key>
-				<string>Search for '{query}'</string>
+				<string>Search the system</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -474,55 +474,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<false/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>jdi</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string>Searching IDs...</string>
-				<key>script</key>
-				<string>python3 jd_browse.py -l id "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>Search your JD IDs</string>
-				<key>title</key>
-				<string>Search IDs</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>jdi-search</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>autopaste</key>
 				<false/>
 				<key>clipboardtext</key>
@@ -555,7 +506,69 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>jdc</string>
+				<string>{var:jd_id}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching IDs...</string>
+				<key>script</key>
+				<string>python3 jd_browse.py -l id "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search your Johnny Decimal IDs</string>
+				<key>title</key>
+				<string>Search IDs</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>jdi-search</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>path</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.browseinterminal</string>
+			<key>uid</key>
+			<string>open-terminal</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>{var:jd_cat}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -573,7 +586,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Search your JD categories</string>
+				<string>Search your Johnny Decimal categories</string>
 				<key>title</key>
 				<string>Search Categories</string>
 				<key>type</key>
@@ -587,19 +600,6 @@
 			<string>jdc-search</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>path</key>
-				<string></string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.browseinterminal</string>
-			<key>uid</key>
-			<string>open-terminal</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -640,7 +640,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>jda</string>
+				<string>{var:jd_area}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -658,7 +658,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Search your JD areas</string>
+				<string>Search your Johnny Decimal areas</string>
 				<key>title</key>
 				<string>Search Areas</string>
 				<key>type</key>
@@ -672,6 +672,50 @@
 			<string>jda-search</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<true/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Created: {query}</string>
+				<key>title</key>
+				<string>Johnny Decimal</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>create-notify</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>mkdir -p "$1" &amp;&amp; echo -n "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>create-folder</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -819,33 +863,12 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<true/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Created: {query}</string>
-				<key>title</key>
-				<string>Johnny Decimal</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>create-notify</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>mkdir -p "$1" &amp;&amp; echo -n "$1"</string>
+				<string>python3 jd_build.py</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -856,9 +879,30 @@
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>create-folder</string>
+			<string>build-run</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>jdb</string>
+				<key>subtext</key>
+				<string>Build or rebuild the system's index</string>
+				<key>text</key>
+				<string>Build the JDex</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>jdb</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -880,50 +924,6 @@
 			<string>build-notify</string>
 			<key>version</key>
 			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>jdb</string>
-				<key>subtext</key>
-				<string>Build or rebuild the system's index</string>
-				<key>text</key>
-				<string>Build the JDex</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>jdb</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>python3 jd_build.py</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>build-run</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -966,14 +966,14 @@ Set the environment variables in the workflow settings:
 			<key>xpos</key>
 			<real>450</real>
 			<key>ypos</key>
-			<real>995</real>
+			<real>1025</real>
 		</dict>
 		<key>build-run</key>
 		<dict>
 			<key>xpos</key>
 			<real>250</real>
 			<key>ypos</key>
-			<real>995</real>
+			<real>1025</real>
 		</dict>
 		<key>copy-clipboard</key>
 		<dict>
@@ -994,24 +994,26 @@ Set the environment variables in the workflow settings:
 			<key>xpos</key>
 			<real>715</real>
 			<key>ypos</key>
-			<real>810</real>
+			<real>755</real>
 		</dict>
 		<key>create-notify</key>
 		<dict>
 			<key>xpos</key>
 			<real>975</real>
 			<key>ypos</key>
-			<real>810</real>
+			<real>755</real>
 		</dict>
 		<key>j-search</key>
 		<dict>
 			<key>xpos</key>
 			<real>50</real>
 			<key>ypos</key>
-			<real>165</real>
+			<real>215</real>
 		</dict>
 		<key>jd-browse</key>
 		<dict>
+			<key>note</key>
+			<string>Query your Johnny Decimal system. This is the main entry point</string>
 			<key>xpos</key>
 			<real>50</real>
 			<key>ypos</key>
@@ -1019,52 +1021,62 @@ Set the environment variables in the workflow settings:
 		</dict>
 		<key>jda-search</key>
 		<dict>
+			<key>note</key>
+			<string>Search Johnny Decimal Areas</string>
 			<key>xpos</key>
 			<real>50</real>
 			<key>ypos</key>
-			<real>530</real>
+			<real>660</real>
 		</dict>
 		<key>jdb</key>
 		<dict>
+			<key>note</key>
+			<string>Build (or rebuild) the JDex – the Johnny Decimal index</string>
 			<key>xpos</key>
 			<real>50</real>
 			<key>ypos</key>
-			<real>995</real>
+			<real>1025</real>
 		</dict>
 		<key>jdc-search</key>
 		<dict>
+			<key>note</key>
+			<string>Search Johnny Decimal Categories</string>
 			<key>xpos</key>
 			<real>50</real>
 			<key>ypos</key>
-			<real>410</real>
+			<real>500</real>
 		</dict>
 		<key>jdi-search</key>
 		<dict>
+			<key>note</key>
+			<string>Search Johnny Decimal IDs</string>
 			<key>xpos</key>
 			<real>50</real>
 			<key>ypos</key>
-			<real>290</real>
+			<real>340</real>
 		</dict>
 		<key>jdn-step1</key>
 		<dict>
+			<key>note</key>
+			<string>Create a new Johnny Decimal ID folder</string>
 			<key>xpos</key>
 			<real>50</real>
 			<key>ypos</key>
-			<real>655</real>
+			<real>855</real>
 		</dict>
 		<key>jdn-step3</key>
 		<dict>
 			<key>xpos</key>
 			<real>250</real>
 			<key>ypos</key>
-			<real>655</real>
+			<real>855</real>
 		</dict>
 		<key>jdn-step4</key>
 		<dict>
 			<key>xpos</key>
 			<real>450</real>
 			<key>ypos</key>
-			<real>655</real>
+			<real>855</real>
 		</dict>
 		<key>open-file</key>
 		<dict>
@@ -1087,6 +1099,90 @@ Set the environment variables in the workflow settings:
 			<key>config</key>
 			<dict>
 				<key>default</key>
+				<string>jd</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Entry point of the workflow. The basic command you can use to invoke the workflow</string>
+			<key>label</key>
+			<string>Workflow trigger</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>jd_main</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>jdi</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Search your Johnny Decimal IDs</string>
+			<key>label</key>
+			<string>ID search trigger</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>jd_id</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>jdc</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Search your Johnny Decimal categories</string>
+			<key>label</key>
+			<string>Category search trigger</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>jd_cat</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>jda</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Search your Johnny Decimal areas</string>
+			<key>label</key>
+			<string>Area search trigger</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>jd_area</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
 				<string>~/Documents</string>
 				<key>placeholder</key>
 				<string>~/Documents</string>
@@ -1098,7 +1194,7 @@ Set the environment variables in the workflow settings:
 			<key>description</key>
 			<string>Root folder of your Johnny Decimal system</string>
 			<key>label</key>
-			<string>JD Root</string>
+			<string>Johnny Decimal root folder</string>
 			<key>type</key>
 			<string>textfield</string>
 			<key>variable</key>
@@ -1119,19 +1215,15 @@ Set the environment variables in the workflow settings:
 			<key>description</key>
 			<string>Path to the JD index file</string>
 			<key>label</key>
-			<string>Index File</string>
+			<string>Index file path</string>
 			<key>type</key>
 			<string>textfield</string>
 			<key>variable</key>
 			<string>JD_INDEX</string>
 		</dict>
 	</array>
-	<key>variables</key>
-	<dict/>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
-	<string>1.0.0</string>
+	<string>0.1.0</string>
 	<key>webaddress</key>
 	<string></string>
 </dict>
