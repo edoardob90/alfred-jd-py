@@ -378,7 +378,7 @@
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
-				<string>python3 jd_browse.py "$1"</string>
+				<string>python3 browse.py "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -450,7 +450,7 @@
 				<key>runningsubtext</key>
 				<string>Searching IDs...</string>
 				<key>script</key>
-				<string>python3 jd_browse.py -l id "$1"</string>
+				<string>python3 browse.py -l id "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -518,7 +518,7 @@
 				<key>runningsubtext</key>
 				<string>Searching IDs...</string>
 				<key>script</key>
-				<string>python3 jd_browse.py -l id "$1"</string>
+				<string>python3 browse.py -l id "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -580,7 +580,7 @@
 				<key>runningsubtext</key>
 				<string>Searching categories...</string>
 				<key>script</key>
-				<string>python3 jd_browse.py -l category "$1"</string>
+				<string>python3 browse.py -l category "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -652,7 +652,7 @@
 				<key>runningsubtext</key>
 				<string>Searching areas...</string>
 				<key>script</key>
-				<string>python3 jd_browse.py -l area "$1"</string>
+				<string>python3 browse.py -l area "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -745,7 +745,7 @@
 				<key>runningsubtext</key>
 				<string>Loading categories...</string>
 				<key>script</key>
-				<string>python3 jd_new.py "$1"</string>
+				<string>python3 new.py "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -792,7 +792,7 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>python3 jd_new.py "$1"</string>
+				<string>python3 new.py "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -839,7 +839,7 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>python3 jd_new.py "$1"</string>
+				<string>python3 new.py "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -868,7 +868,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>python3 jd_build.py</string>
+				<string>python3 build.py</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>

@@ -17,13 +17,11 @@ import os
 import sys
 from pathlib import Path
 
-from jd_alfred import create_item, create_mod, create_output
-from jd_core import (
-    JDIndex,
-    get_available_ids,
+from alfred import create_item, create_mod, create_output
+from core import (
+    JDex,
+    JDId,
     get_config,
-    get_next_id,
-    get_section_name,
     load_index,
     resolve_path,
 )
@@ -64,35 +62,35 @@ def main() -> None:
     print(create_output(items))
 
 
-def show_categories(query: str, index: JDIndex, jd_root) -> list[dict]:
+def show_categories(query: str, index: JDex, jd_root: Path) -> list[dict]:
     """Step 1: Show all categories for user to select."""
     items = []
     query_lower = query.lower()
 
-    for area_code, area in sorted(index.get("areas", {}).items()):
-        for cat_code, cat in sorted(area.get("categories", {}).items()):
+    for area in index:
+        for category in area:
             # Filter by query if provided
-            if query_lower and query_lower not in cat["name"].lower():
+            if query_lower and query_lower not in category.name.lower():
                 continue
 
-            path = resolve_path(cat_code, index, jd_root)
-            next_id = get_next_id(cat_code, index)
+            path = resolve_path(category.code, index, jd_root)
+            next_id = category.get_next_available_id()
 
             if not path:
                 continue
 
             items.append(
                 create_item(
-                    title=cat["name"],
+                    title=category.name,
                     subtitle=f"Next available: {next_id}"
                     if next_id
                     else "Category full",
                     arg="",
-                    uid=f"new-cat-{cat_code}",
+                    uid=f"new-cat-{category.code}",
                     icon=str(path),
                     icon_type="fileicon",
                     variables={
-                        "jd_category": cat_code,
+                        "jd_category": category.code,
                         "jd_category_path": str(path),
                     },
                 )
@@ -123,25 +121,23 @@ def show_available_ids(
     category_code: str,
     category_path: str,
     query: str,
-    index: JDIndex,
+    index: JDex,
 ) -> list[dict]:
     """Step 2: Show available ID slots for user to pick."""
     items = []
 
-    # Get category info for hierarchy display
-    area_name = ""
-    category_name = f"Category {category_code}"
-    ids: dict = {}
+    category = index.get_category(category_code)
+    if not category or not category.area:
+        return [
+            create_item(
+                title=f"Category {category_code} not found",
+                subtitle="Run 'jdb' to rebuild index",
+                valid=False,
+            )
+        ]
 
-    for area_code, area in index.get("areas", {}).items():
-        cat = area.get("categories", {}).get(category_code)
-        if cat:
-            area_name = area["name"]
-            category_name = cat["name"]
-            ids = cat.get("ids", {})
-            break
-
-    available = get_available_ids(category_code, index)
+    area = category.area
+    available = category.get_available_id_slots()
 
     if not available:
         return [
@@ -157,9 +153,12 @@ def show_available_ids(
         available = [a for a in available if query in a]
 
     for id_code in available:
-        # Build hierarchy subtitle
-        section_name = get_section_name(id_code, ids)
-        subtitle = f"{area_name} → {category_name}"
+        # Build hierarchy subtitle - use temporary JDID to compute section
+        temp_id = JDId(code=id_code, name="")
+        temp_id._category = category
+        section_name = temp_id.section_name
+
+        subtitle = f"{area.name} → {category.name}"
         if section_name:
             subtitle += f" → {section_name}"
 
@@ -195,27 +194,29 @@ def show_name_input(
     category_path: str,
     selected_id: str,
     name_query: str,
-    index: JDIndex,
+    index: JDex,
 ) -> list[dict]:
     """Step 3: Show name input and create option."""
     items = []
 
-    # Get category info for hierarchy display
-    area_name = ""
-    category_name = f"Category {category_code}"
-    ids: dict = {}
+    category = index.get_category(category_code)
+    if not category or not category.area:
+        return [
+            create_item(
+                title=f"Category {category_code} not found",
+                subtitle="Run 'jdb' to rebuild index",
+                valid=False,
+            )
+        ]
 
-    for area_code, area in index.get("areas", {}).items():
-        cat = area.get("categories", {}).get(category_code)
-        if cat:
-            area_name = area["name"]
-            category_name = cat["name"]
-            ids = cat.get("ids", {})
-            break
+    area = category.area
 
-    # Build hierarchy subtitle
-    section_name = get_section_name(selected_id, ids)
-    subtitle = f"{area_name} → {category_name}"
+    # Build hierarchy subtitle - use temporary JDID to compute section
+    temp_id = JDId(code=selected_id, name="")
+    temp_id._category = category
+    section_name = temp_id.section_name
+
+    subtitle = f"{area.name} → {category.name}"
     if section_name:
         subtitle += f" → {section_name}"
 

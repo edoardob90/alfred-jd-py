@@ -7,7 +7,7 @@ Scans ~/Documents and saves a nested JSON index.
 
 import sys
 
-from jd_core import count_items, get_config, save_index, scan_filesystem
+from core import get_config, save_index, scan_filesystem
 
 
 def main() -> None:
@@ -15,7 +15,7 @@ def main() -> None:
 
     index = scan_filesystem(jd_root)
 
-    if not index.get("areas"):
+    if len(index) == 0:
         print(f"No JD folders found in {jd_root}")
         sys.exit(1)
 
@@ -24,7 +24,7 @@ def main() -> None:
         print(error)
         sys.exit(1)
 
-    areas, categories, ids = count_items(index)
+    areas, categories, ids = index.count()
     print(f"Index rebuilt: {areas} areas, {categories} categories, {ids} IDs")
 
 

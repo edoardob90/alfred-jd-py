@@ -26,56 +26,29 @@ def create_item(
     quicklookurl: str | None = None,
     text: dict[str, str] | None = None,
 ) -> dict[str, Any]:
-    """
-    Create a single Alfred result item.
+    """Create a single Alfred result item."""
+    item: dict[str, Any] = {
+        k: v
+        for k, v in {
+            "title": title,
+            "subtitle": subtitle,
+            "arg": arg,
+            "uid": uid,
+            "autocomplete": autocomplete,
+            "type": item_type,
+            "match": match,
+            "mods": mods,
+            "variables": variables,
+            "quicklookurl": quicklookurl,
+            "text": text,
+        }.items()
+        if v
+    }
 
-    Args:
-        title: Main display text
-        subtitle: Secondary text
-        arg: Argument passed to subsequent actions
-        uid: Unique identifier for sorting/caching
-        icon: Path to icon file
-        icon_type: "fileicon" to use file's icon, "filetype" for UTI
-        autocomplete: Text for tab-completion
-        valid: Whether item is actionable
-        item_type: "file" or "file:skipcheck" for file results
-        match: Custom string for Alfred's filtering
-        mods: Modifier key behaviors (cmd, alt, ctrl, shift)
-        variables: Variables to pass through workflow
-        quicklookurl: URL/path for Quick Look preview
-        text: Object with "copy" and/or "largetype" keys
-    """
-    item: dict[str, Any] = {"title": title}
-
-    if subtitle:
-        item["subtitle"] = subtitle
-    if arg:
-        item["arg"] = arg
-    if uid:
-        item["uid"] = uid
     if not valid:
         item["valid"] = False
-    if autocomplete is not None:
-        item["autocomplete"] = autocomplete
-    if item_type:
-        item["type"] = item_type
-    if match:
-        item["match"] = match
-    if mods:
-        item["mods"] = mods
-    if variables:
-        item["variables"] = variables
-    if quicklookurl:
-        item["quicklookurl"] = quicklookurl
-    if text:
-        item["text"] = text
-
-    # Handle icon
     if icon:
-        if icon_type:
-            item["icon"] = {"type": icon_type, "path": icon}
-        else:
-            item["icon"] = {"path": icon}
+        item["icon"] = {"type": icon_type, "path": icon} if icon_type else {"path": icon}
 
     return item
 
@@ -87,23 +60,17 @@ def create_mod(
     icon: str | None = None,
     variables: dict[str, str] | None = None,
 ) -> dict[str, Any]:
-    """
-    Create a modifier key behavior.
+    """Create a modifier key behavior (cmd, alt, ctrl, shift, fn)."""
+    mod: dict[str, Any] = {
+        k: v
+        for k, v in {"subtitle": subtitle, "arg": arg, "variables": variables}.items()
+        if v is not None
+    }
 
-    Used in the 'mods' dict with keys: cmd, alt, ctrl, shift, fn
-    """
-    mod: dict[str, Any] = {}
-
-    if subtitle is not None:
-        mod["subtitle"] = subtitle
-    if arg is not None:
-        mod["arg"] = arg
     if not valid:
         mod["valid"] = False
     if icon:
         mod["icon"] = {"path": icon}
-    if variables:
-        mod["variables"] = variables
 
     return mod
 
