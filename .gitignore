@@ -14,4 +14,6 @@ __pycache__/
 .vscode/
 *.swp
 *.swo
-alfred-jd-py.alfredworkflow
+
+# Binary export
+*.alfredworkflow
